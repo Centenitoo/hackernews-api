@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'test-hackernews',
         'USER': 'postgres',
         'PASSWORD': 'IrvingConde123',
-        'HOST': '34.125.7.41',
+        'HOST': 'localhost',
         'PORT': '5433',
     }
 }

@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'hackernews.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test-hackernews',
+        'NAME': 'testhackernews',
         'USER': 'postgres',
         'PASSWORD': 'IrvingConde123',
-        'HOST': '34.125.7.41',
+        'HOST': 'localhost',
         'PORT': '5433',
     }
 }
