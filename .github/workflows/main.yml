@@ -26,5 +26,5 @@ jobs:
     - name: list directory
       run: ls -al
     - name: show python version
-      run: python --version
+      run: python --version
     
