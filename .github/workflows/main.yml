@@ -28,7 +28,7 @@ jobs:
     - name: show python version
       run: python --version
     - name: make .env
-      uses: SpicyPizza/create-evfile@v1.3
+      uses: SpicyPizza/create-envfile@v1.3
       with:
          envkey_TEST_SECRET_KEY : ${{ secrets.TEST_SECRET_KEY }}
          envkey_TEST_DATABASE : ${{ secrets.TEST_DATABASE }}         
