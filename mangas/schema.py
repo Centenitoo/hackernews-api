@@ -58,3 +58,5 @@ class CreateManga(graphene.Mutation) :
         
 class Mutation(graphene.ObjectType) : 
     create_manga = CreateManga.Field()
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
