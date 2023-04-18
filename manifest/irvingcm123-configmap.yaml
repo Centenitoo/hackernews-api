@@ -5,9 +5,9 @@ metadata:
  labels:
    app: postgres
 data:
-PROD_SECRET_KEY : 'edwar' 
-PROD_DATABASE : 'xehautgp' 
-PROD_USER : 'xehautgp' 
-PROD_PASSWORD : '0wHfp3AGNc5fgz_1iQn6hU2YvMAd6RVq' 
-PROD_HOST : 'hansken.db.elephantsql.com' 
+PROD_SECRET_KEY : 'b20f2b5b-929d-4d14-a4e5-7ec368bc317d ' 
+PROD_DATABASE : 'gjkfvlex' 
+PROD_USER : 'gjkfvlex' 
+PROD_PASSWORD : 'R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP' 
+PROD_HOST : 'rosie.db.elephantsql.com' 
 PROD_PORT : 5432
