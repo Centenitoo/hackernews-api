@@ -84,13 +84,13 @@ TEST_PORT = config("TEST_PORT", default=5432)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': TEST_DATABASE,
-        'USER': TEST_USER,
-        'PASSWORD': TEST_PASSWORD,
-        'HOST': TEST_HOST,
-        'PORT': TEST_PORT,
+        'NAME': 'gjkfvlex',
+        'USER': 'gjkfvlex',
+        'PASSWORD': 'R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP',
+        'HOST': 'rosie.db.elephantsql.com',
+        'PORT': 5432,
         'TEST': {
-            'NAME': TEST_DATABASE,
+            'NAME': 'gjkfvlex',
         },
     }
 }
