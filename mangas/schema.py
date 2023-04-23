@@ -18,7 +18,7 @@ class CreateManga(graphene.Mutation) :
     titulomanga = graphene.String()
     generomanga = graphene.String()
     descripcionmanga = graphene.String()
-    lanzamientomanga = graphene.String()
+    preciomanga = graphene.Int()
     escritormanga = graphene.String()
     volumenesmanga = graphene.Int()
     capitulosmanga = graphene.Int()
@@ -30,7 +30,7 @@ class CreateManga(graphene.Mutation) :
         titulomanga = graphene.String()
         generomanga = graphene.String()
         descripcionmanga = graphene.String()
-        lanzamientomanga = graphene.String()
+        preciomanga = graphene.Int()
         escritormanga = graphene.String()
         volumenesmanga = graphene.Int()
         capitulosmanga = graphene.Int()
@@ -38,8 +38,8 @@ class CreateManga(graphene.Mutation) :
         editorialmanga = graphene.String()
         clasificacionedadmanga = graphene.Int()
         
-    def mutate(self, info, titulomanga, generomanga, descripcionmanga, lanzamientomanga, escritormanga, volumenesmanga, capitulosmanga, ilustradormanga, editorialmanga, clasificacionedadmanga):
-        manga = Manga( titulomanga = titulomanga, generomanga = generomanga, descripcionmanga = descripcionmanga, lanzamientomanga = lanzamientomanga, escritormanga = escritormanga, volumenesmanga = volumenesmanga, capitulosmanga= capitulosmanga, ilustradormanga = ilustradormanga, editorialmanga = editorialmanga, clasificacionedadmanga = clasificacionedadmanga)
+    def mutate(self, info, titulomanga, generomanga, descripcionmanga, preciomanga, escritormanga, volumenesmanga, capitulosmanga, ilustradormanga, editorialmanga, clasificacionedadmanga):
+        manga = Manga( titulomanga = titulomanga, generomanga = generomanga, descripcionmanga = descripcionmanga, preciomanga = preciomanga, escritormanga = escritormanga, volumenesmanga = volumenesmanga, capitulosmanga= capitulosmanga, ilustradormanga = ilustradormanga, editorialmanga = editorialmanga, clasificacionedadmanga = clasificacionedadmanga)
         manga.save()
         
         return CreateManga(
@@ -47,7 +47,7 @@ class CreateManga(graphene.Mutation) :
             titulomanga = manga.titulomanga,
             generomanga = manga.generomanga, 
             descripcionmanga = manga.descripcionmanga,
-            lanzamientomanga = manga.lanzamientomanga,
+            preciomanga = manga.preciomanga,
             escritormanga = manga.escritormanga,
             volumenesmanga = manga.volumenesmanga, 
             capitulosmanga = manga.capitulosmanga,

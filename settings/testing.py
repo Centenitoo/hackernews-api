@@ -43,7 +43,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,13 +85,13 @@ TEST_PORT = config("TEST_PORT", default=5432)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gjkfvlex',
-        'USER': 'gjkfvlex',
-        'PASSWORD': 'R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP',
-        'HOST': 'rosie.db.elephantsql.com',
-        'PORT': 5432,
+        'NAME': TEST_DATABASE,
+        'USER': TEST_USER,
+        'PASSWORD': TEST_PASSWORD,
+        'HOST': TEST_HOST,
+        'PORT': TEST_PORT,
         'TEST': {
-            'NAME': 'gjkfvlex',
+            'NAME': TEST_DATABASE,
         },
     }
 }
@@ -138,14 +137,4 @@ STATIC_URL = '/static/'
 
 GRAPHENE = {
     'SCHEMA': 'Hackernews.schema.schema',
-    'MIDDLEWARE': [
-        'graphql_jwt.middleware.JSONWebTokenMiddleware',
-    ],
 }
-
-AUTHENTICATION_BACKENDS = [
-    'graphql_jwt.backends.JSONWebTokenBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
-
-CORS_ORIGIN_ALLOW_ALL = True
