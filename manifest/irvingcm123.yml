@@ -17,7 +17,7 @@ spec:
         name: irvingcm123
         envFrom:
         - configMapRef:
-            name: irvingcm-config
+            name: irvingcm123-config
         livenessProbe:
           httpGet:
             path: /ht/
