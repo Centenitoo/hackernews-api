@@ -9,4 +9,4 @@ dev:
  irvingcm123:
    command: bash
    sync:
-   - .:/mangas  # cambiar por su proyecto
+   - .:/Hackernews  # cambiar por su proyecto
