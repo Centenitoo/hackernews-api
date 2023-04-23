@@ -4,7 +4,7 @@ build:
 
 deploy:
  - okteto build # build the image with the latest e resources in kubernetes
- #- kubectl apply -f manifests # create all thace de okteto
+ - kubectl apply -f manifests # create all thace de okteto
 dev:
  irvingcm123:
    command: bash
