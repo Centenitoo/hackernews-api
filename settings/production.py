@@ -91,9 +91,9 @@ DATABASES = {
         'PASSWORD': PROD_PASSWORD,
         'HOST': PROD_HOST,
         'PORT': PROD_PORT,
-        'TEST': {
-            'NAME': PROD_DATABASE,
-        },
+        #'TEST': {
+        #    'NAME': PROD_DATABASE,
+        #},
     },
 }
 
