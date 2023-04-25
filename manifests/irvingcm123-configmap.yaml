@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
- name: irvingcm123-config
- labels:
-   app: postgres
+  name: irvingcm123-config
+  labels:
+    app: postgres
 data:
-PROD_SECRET_KEY : b20f2b5b-929d-4d14-a4e5-7ec368bc317d 
-PROD_DATABASE : gjkfvlex 
-PROD_USER : gjkfvlex 
-PROD_PASSWORD : R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP 
-PROD_HOST : rosie.db.elephantsql.com 
-PROD_PORT : "5432"
+  PROD_SECRET_KEY : b20f2b5b-929d-4d14-a4e5-7ec368bc317d 
+  PROD_DATABASE : gjkfvlex 
+  PROD_USER : gjkfvlex 
+  PROD_PASSWORD : R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP 
+  PROD_HOST : rosie.db.elephantsql.com 
+  PROD_PORT : "5432"
