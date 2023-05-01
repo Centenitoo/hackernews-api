@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: irvingcm123
 spec:
-  replicas: {nodo}
+  replicas: 1
   selector:
     matchLabels:
       app: irvingcm123
