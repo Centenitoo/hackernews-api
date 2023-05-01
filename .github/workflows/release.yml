@@ -44,11 +44,13 @@ jobs:
         fail_on_empty: false
     - name: show .env file
       run: cat .env
+    - name: update model nodo in k8 
+      run: sed -i 's/{nodo}/${{secrets.NODO}}/g' manifests/k8s.yaml
     - name: run test
       run: python manage.py test --settings=settings.testing -v 3 --keepdb
     - uses: okteto/context@2.7.0
       with:
-       token: ${{ secrets.OKTETO_TOKEN }}
+        token: ${{ secrets.OKTETO_TOKEN }}
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:
