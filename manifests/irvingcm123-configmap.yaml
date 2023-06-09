@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: irvingrcm123-config
+  labels:
+    app: postgres
+data:
+  DEV_SECRET_KEY : MY_DEV_SECRET_KEY
+  DEV_DATABASE : MY_DEV_DATABASE 
+  DEV_USER : MY_DEV_USER 
+  DEV_PASSWORD : MY_DEV_PASSWORD 
+  DEV_HOST : MY_DEV_HOST
+  DEV_PORT : MY_DEV_PORT
+  PROD_SECRET_KEY : edwar 
+  PROD_DATABASE : gjkfvlex 
+  PROD_USER : gjkfvlex 
+  PROD_PASSWORD : R1VTicGk1qpd7k2eeS07PAqg3vC9h_PP 
+  PROD_HOST : rosie.db.elephantsql.com
+  PROD_PORT : "5432"  

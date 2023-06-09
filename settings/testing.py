@@ -33,12 +33,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'health_check',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
+    'mangas'
 ]
 
 MIDDLEWARE = [
@@ -49,9 +52,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
-ROOT_URLCONF = 'hackernews.urls'
+ROOT_URLCONF = 'Hackernews.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hackernews.wsgi.application'
+WSGI_APPLICATION = 'Hackernews.wsgi.application'
 
 
 
@@ -133,3 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GRAPHENE = {
+    'SCHEMA': 'Hackernews.schema.schema',
+}

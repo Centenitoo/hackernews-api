@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,12 +32,16 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'health_check',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
+    'mangas',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,9 +52,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
-ROOT_URLCONF = 'hackernews.urls'
+ROOT_URLCONF = 'Hackernews.urls'
 
 TEMPLATES = [
     {
@@ -67,21 +75,30 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hackernews.wsgi.application'
+WSGI_APPLICATION = 'Hackernews.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+PROD_DATABASE = config("DEV_DATABASE", default='')
+PROD_USER = config("DEV_USER", default='')
+PROD_PASSWORD = config("DEV_PASSWORD", default='')
+PROD_HOST = config("DEV_HOST", default='')
+PROD_PORT = config("DEV_PORT", default=5432)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'testhackernews',
-        'USER': 'postgres',
-        'PASSWORD': 'IrvingConde123',
-        'HOST': 'localhost',
-        'PORT': '5433',
-    }
+        'NAME': DEV_DATABASE,
+        'USER': DEV_USER,
+        'PASSWORD': DEV_PASSWORD,
+        'HOST': DEV_HOST,
+        'PORT': DEV_PORT,
+        #'TEST': {
+        #    'NAME': TEST_DATABASE,
+        #},
+    },
 }
 
 
@@ -122,3 +139,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GRAPHENE = {
+    'SCHEMA': 'Hackernews.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
+
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True

@@ -1,4 +1,4 @@
-"""Hackernews URL Configuration
+"""hackernews URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -16,12 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from django.views.decorators.csrf import csrf_exempt
-from graphene_django.views import GraphQLView
-from django.conf.urls import include, url
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
-    url(r'^ht/', include('health_check.urls')),
 ]
