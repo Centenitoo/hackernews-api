@@ -1,0 +1,12 @@
+build:
+  alexandrubites:  # cambiar por su namespcode
+    image: okteto.dev/alexandrubites:latest  # cambiar por su namespace de okteto
+
+deploy:
+  - okteto build # build the image with the latest e resources in kubernetes
+  - kubectl apply -f manifests # create all thace de okteto
+dev:
+  alexandrubites:
+    command: bash
+    sync:
+    - .:/Music  # cambiar por su proyecto
