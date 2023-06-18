@@ -5,11 +5,15 @@ from myapp.models import DataEntry
 class DataEntryType(DjangoObjectType):
     class Meta:
         model = DataEntry
+        prompt = DataEntry
+        result = DataEntry
 
 class Query(graphene.ObjectType):
     all_data_entries = graphene.List(DataEntryType)
     data_entries_by_user = graphene.List(DataEntryType, user=graphene.String(required=True))
     data_entries_by_model = graphene.List(DataEntryType, model=graphene.String(required=True))
+    data_entries_by_prompt = graphene.List(DataEntryType, prompt=graphene.String(required=True))
+    data_entries_by_result = graphene.List(DataEntryType, result=graphene.String(required=True))
 
     def resolve_all_data_entries(self, info):
         return DataEntry.objects.all()
@@ -20,6 +24,11 @@ class Query(graphene.ObjectType):
     def resolve_data_entries_by_model(self, info, model):
         return DataEntry.objects.filter(model=model)
     
+    def resolve_data_entries_by_prompt(self, info, prompt):
+        return DataEntry.objects.filter(prompt=prompt)
+    
+    def resolve_data_entries_by_result(self, info, result):
+        return DataEntry.objects.filter(result=result)
 
 class CreateDataEntry(graphene.Mutation):
     id = graphene.Int()
